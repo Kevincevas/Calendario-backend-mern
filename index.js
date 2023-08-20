@@ -31,6 +31,11 @@ app.use( express.json() );
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/events', require('./routes/events'));
 
+//Areglando el problema de rutas en produccion, cualquier ruta no especificada va directamente al la ruta publica
+app.use('*', (req, resp) => {
+    resp.sendFile( __dirname + './public/index.html' );
+})
+
 
 
 //Escuchar peticiones
