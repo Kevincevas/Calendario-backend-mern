@@ -6,7 +6,7 @@ const { dbConnection } = require('./database/config')
 const cors = require('cors');
 
 //correr todos los procesos de node y del env
-console.log( process.env )
+//console.log( process.env )
 
 
 //Crear el servidor de express
@@ -33,7 +33,7 @@ app.use('/api/events', require('./routes/events'));
 
 //Areglando el problema de rutas en produccion, cualquier ruta no especificada va directamente al la ruta publica
 app.use('*', (req, resp) => {
-    resp.sendFile( __dirname + './public/index.html' );
+    resp.sendFile( __dirname + '/public/index.html' );
 })
 
 
